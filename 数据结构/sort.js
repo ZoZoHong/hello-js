@@ -54,22 +54,43 @@ function merge(array, left, right) {
     return array;
 }
 
-console.log(mergeSort(sortMe) + '归并');
+// console.log(mergeSort(sortMe) + '归并');
 
 
 // 桶排序
 
 function radixSort(arr, arrDomain, gropSize) {
     let data = [];
-    for (let i = 0; i < arr.length; i++){
+    for (let i = 0; i < arr.length; i++) {
         data.push([]);
     }
     console.log(data);
     for (let i = 0; i < arr.length; i++) {
         data[Math.floor(parseInt(arr[i] / gropSize)) + 1].push(arr[i]);
     }
-    for (let i = 0; i < data.length; i++){
-        
+    for (let i = 0; i < data.length; i++) {
+        quickSort(data[i]);
     }
-
+    return data.flat(Infinity);
 }
+
+
+// 快排
+// 这里默认 从小到大
+function quickSort(arr) {
+    // 结束递归
+    if (arr.length <= 1) return arr;
+    let left = [], right = [], keys = arr.shift();
+    // shift 弹出首位 并 返回
+    for (let value of arr) {
+        if (value > keys) {
+            right.push(value);
+        } else {
+            left.push(value);
+        }
+    }
+    // 合并
+    return quickSort(left).concat(keys, quickSort(right));
+}
+
+console.log(quickSort(sortMe) + ' quicksort');
