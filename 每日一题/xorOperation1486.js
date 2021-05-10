@@ -12,12 +12,21 @@
 
 // };
 
+// var xorOperation = function (n, start) {
+//     const nums = [];
+//     for (let i = 0; i < n; i++) {
+//         nums.push(start + 2 * i);
+//     }
+//     return nums.reduce((a, b) => (a ^ b));
+
+// };
+
 var xorOperation = function (n, start) {
-    const nums = [];
+    let ans = 0;
     for (let i = 0; i < n; i++) {
-        nums.push(start + 2 * i);
+        ans ^= (start + i * 2);
     }
-    return nums.reduce((a, b) => (a ^ b));
+    return ans
 
 };
 
