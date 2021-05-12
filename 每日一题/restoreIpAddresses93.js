@@ -47,7 +47,7 @@ var restoreIpAddresses = function (s) {
         if (subRes.length === 4 && start < s.length) return;
         for (let len = 1; len <= 3; len++) {
             // 这里指推入的长度
-            // if (start + len - 1 >= s.length) return; 不会超的
+            if (start + len - 1 >= s.length) return;
             // 去掉0开头的
             if (len != 1 && s[start] === '0') return;
             const str = s.substring(start, start + len);
