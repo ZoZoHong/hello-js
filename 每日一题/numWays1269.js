@@ -1,0 +1,37 @@
+/**
+ * 困难题
+ * https://leetcode-cn.com/problems/number-of-ways-to-stay-in-the-same-place-after-some-steps/
+ * 
+ * 初步思路 dfs 如果有一步成功就 ans++ 会超时
+ * 
+ * 官解 动态规划
+ * 
+ * dp[n] = 0;
+ * 
+ * 入口 dfs(cur,step,arrlen);
+ * 
+ * @param {number} steps
+ * @param {number} arrLen
+ * @return {number}
+ */
+var numWays = function (steps, arrLen) {
+    // 模
+    const MODULO = 1000000007;
+    let maxColumn = Math.min(arrLen - 1, steps);
+    const dp = new Array(steps + 1).fill(0).map(() => new Array(maxColumn + 1).fill(0));
+    dp[0][0] = 1;
+    for (let i = 1; i <= steps; i++) {
+        for (let j = 0; j <= maxColumn; j++) {
+            dp[i][j] = dp[i - 1][j];
+            if (j - 1 >= 0) {
+                dp[i][j] = (dp[i - 1][j - 1] + dp[i][j]) % MODULO;
+            }
+            if (j + 1 <= maxColumn) {
+                dp[i][j] = (dp[i - 1][j + 1] + dp[i][j]) % MODULO;
+            }
+        }
+        // 不动
+
+    }
+    return dp[steps][0];
+};
