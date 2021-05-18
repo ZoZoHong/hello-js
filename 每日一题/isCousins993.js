@@ -73,10 +73,18 @@ var isCousins = function (root, x, y) {
 
     while (q.length) {
         const [node, depth] = q.shift();
-
+        if (node.left) {
+            q.push([node.left, depth + 1]);
+            update(node.left, node, depth + 1);
+        }
+        if (node.right) {
+            q.push([node.right, depth + 1]);
+            update(node.right, node, depth + 1);
+        }
+        if (x_found && y_found) {
+            break;
+        }
     }
-
-
     // 返回堂兄弟 
     return x_depth === y_depth && x_parent !== y_parent;
 }
