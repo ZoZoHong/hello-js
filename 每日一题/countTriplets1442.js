@@ -33,7 +33,7 @@ var countTriplets = function (arr) {
     const cnt = new Map(), total = new Map();
     let ans = 0, s = 0;
 
-    for (const [k, val] of arr) {
+    for (const [k, val] of arr.entries()) {
         let t = s ^ val;
 
         if (cnt.has(t)) {
@@ -44,5 +44,5 @@ var countTriplets = function (arr) {
 
         s = t;
     }
-
+    return ans;
 }
