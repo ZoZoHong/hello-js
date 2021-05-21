@@ -16,16 +16,22 @@
 var topKFrequent = function (words, k) {
     const cnt = new Map();
     for (const word of words) {
-        cnt.set(word, (cnt.get(word) || 0 + 1));
+        cnt.set(word, ((cnt.get(word) || 0) + 1));
     }
     const res = [];
     for (const key of cnt.keys()) {
         // 导出键
         res.push(key);
     }
+    console.log(cnt);
     res.sort((a, b) => {
         // 排序键
-        return cnt.get(a) === cnt.get(b) ? a.localCompare(b) : cnt.get(b) - cnt.get(a);
+        return cnt.get(a) === cnt.get(b) ? a.localeCompare(b) : cnt.get(b) - cnt.get(a);
     })
     return res.slice(0, k);
 };
+
+var a = ["i", "love", "leetcode", "i", "love", "coding"];
+var k = 2;
+
+console.log(topKFrequent(a, k));

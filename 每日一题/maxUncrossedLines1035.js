@@ -1,0 +1,32 @@
+/**
+ * 
+ * 动态规划
+ * 
+ * https://leetcode-cn.com/problems/uncrossed-lines/
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number}
+ */
+var maxUncrossedLines = function (nums1, nums2) {
+    const m = nums1.length, n = nums2.length;
+    const dp = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
+
+    for (let i = 1; i <= m; i++) {
+        const num1 = nums1[i - 1];
+        for (let j = 1; j <= n; j++) {
+            const num2 = nums2[j - 1];
+            if (num1 === num2) {
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+            } else {
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+    return dp[m][n];
+};
+
+
+n1 = [1, 3, 7, 1, 7, 5]
+n2 = [1, 9, 2, 5, 1]
+
+console.log(maxUncrossedLines(n1, n2));
