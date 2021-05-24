@@ -14,7 +14,7 @@ var kthLargestValue = function (matrix, k) {
             xors[i][j] = xors[i - 1][j - 1] ^ xors[i - 1][j] ^ xors[i][j - 1] ^ matrix[i - 1][j - 1];
             res.push(xors[i][j]);
         }
-    }
+    } c
 
     res.sort((a, b) => a - b);
     return res[res.length - k];

@@ -1,4 +1,4 @@
-// 未完成
+// 字典树
 class Trie {
     constructor() {
         this.children = [];
