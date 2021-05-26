@@ -29,6 +29,7 @@ class Trie {
     constructor() {
         const L = 30;
         this.children = new Array(2);
+        var min = Infinity;
     }
     insert (word) {
         let node = this.children;
