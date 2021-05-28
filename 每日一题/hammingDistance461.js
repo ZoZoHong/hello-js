@@ -23,4 +23,4 @@ var hammingDistance = function (x, y) {
     }
     return ans;
 };
-console.log(hammingDistance(2, 4));
+console.log(hammingDistance(4, 14));
