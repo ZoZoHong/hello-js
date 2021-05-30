@@ -24,7 +24,6 @@ var totalHammingDistance = function (nums) {
         }
         total += c * (n - c);
     }
-
     return total;
 };
 
