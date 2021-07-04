@@ -56,3 +56,19 @@ var frequencySort = function (s) {
 
 let s = 'cccaaa';
 console.log(frequencySort(s));
+
+// 利用api最快的方法
+
+const frequencySort = s => {
+    let res = '';
+    const map = new Map();
+    for (let c of s) {
+        map.set(c, (map.get(c) || 0) + 1);
+    }
+
+    const mapSort = new Map([...map].sort((a, b) => b[1] - a[1]));
+    mapSort.forEach((value, key) => {
+        res += key.repeat(value);
+    })
+    return res;
+}

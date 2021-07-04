@@ -24,12 +24,12 @@ var maxIceCream = function (costs, coins) {
 
 var maxIceCream = function (costs, coins) {
     // 计数排序+贪心
-    const freq = new Array(10001).fill(0);
+    const freq = new Array(100001).fill(0);
     for (const cost of costs) {
         freq[cost]++;
     }
     let count = 0;
-    for (let i = 1; i < 10001; i++) {
+    for (let i = 1; i < 100001; i++) {
         if (coins >= i) {
             // 当还有钱够买冰淇淋
             const curCount = Math.min(freq[i], Math.floor(coins / i));
