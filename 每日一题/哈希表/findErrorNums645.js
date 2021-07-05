@@ -1,5 +1,8 @@
 /**
  * https://leetcode-cn.com/problems/set-mismatch/
+ * 方法一 : 排序 遍历 
+ * 方法二 : 哈希表
+ * 方法三:
  * @param {number[]} nums
  * @return {number[]}
  */
@@ -12,6 +15,8 @@ var findErrorNums = function (nums) {
     for (const num of nums) {
         buckets[num] = (buckets[num] || 0) + 1;
     }
+
+
     return [buckets.findIndex(v => v === 2), buckets.findIndex(v => v === 0)];
 
 };
