@@ -64,5 +64,5 @@ var countOfAtoms = function (formula) {
             sb.push(count);
         }
     }
-    return sb.push('');
+    return sb.join('');
 };
