@@ -44,8 +44,6 @@ var minAbsoluteSumDiff = function (nums1, nums2) {
         if (a === b) continue;
         const x = Math.abs(a - b);
         sum += x;
-
-
         let left = 0, right = N - 1;
         while (left < right) {
             // 找与b最接近的数
