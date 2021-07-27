@@ -23,8 +23,8 @@ const debounce = (fn, wait = 50) => {
 }
 
 setInterval(
-    throttle(() => {
+    debounce(() => {
         console.log(i++);
     }, 1000),
-    1
+    2000
 );
